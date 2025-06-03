@@ -1,129 +1,537 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>ll</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>GM Mohamed - مطور مواقع</title>
+    <style>
+        /* استيراد الخطوط */
+        @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap");
+        
+        /* قواعد عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #00adb5;
+            --secondary-color: #393e46;
+            --background-color: #222831;
+            --text-color: #eeeeee;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            background-color: rgba(34, 40, 49, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+        
+        .GM {
+            color: var(--text-color);
+            cursor: cell;
+            font-size: 1.8rem;
+        }
+
+        .navi ul {
+            display: flex;
+            list-style-type: none;
+            gap: 2rem;
+        }
+
+        .navi a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navi a:hover {
+            color: var(--primary-color);
+        }
+
+        hr {
+            opacity: 30%;
+            margin: 0 5%;
+        }
+
+        /* تنسيق قسم البطل (Hero) */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5rem auto;
+            padding: 0 5%;
+            max-width: 1400px;
+            flex-wrap: wrap;
+        }
+
+        .herosub {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            color: var(--text-color);
+        }
+
+        .title {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .but {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hireme, .cv {
+            border-radius: 24px;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hireme {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .hireme:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 173, 181, 0.4);
+        }
+
+        .cv {
+            background-color: rgba(57, 62, 70, 0.75);
+            color: var(--text-color);
+            backdrop-filter: blur(4px);
+        }
+
+        .cv:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(57, 62, 70, 0.4);
+        }
+
+        .heroimg {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* تنسيق قسم المعلومات عني */
+        .abouteeme {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8rem auto;
+            padding: 0 5%;
+            max-width: 1400px;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .abuttimg {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .textall {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .texttitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .text1 { 
+            color: var(--text-color);
+            font-size: 2.5rem;
+        }
+        
+        .text2 { 
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        .abutpar {
+            text-align: right;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* تنسيق قسم الأعمال */
+        .works {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 5rem 5%;
+            margin: 5rem 0;
+        }
+
+        .workscon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1400px;
+        }
+
+        .projecttitle {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            list-style-type: none;
+        }
+
+        .project-card {
+            background-color: rgba(57, 62, 70, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* تنسيق قسم التواصل */
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5rem auto;
+            padding: 0 5%;
+            max-width: 1400px;
+        }
+
+        .conteeect {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .emailandphone {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgba(57, 62, 70, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .emailandphone:hover {
+            transform: translateY(-5px);
+        }
+
+        .emailandphone img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .emailandphone a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .emailandphone a:hover {
+            color: var(--primary-color);
+        }
+
+        .cocialmedia {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cocialmedia a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(57, 62, 70, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 1.2rem;
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s;
+        }
+
+        .cocialmedia a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .cocialmedia i {
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+
+        /* جعل الموقع متجاوبًا */
+        @media (max-width: 1024px) {
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .text1, .text2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+            
+            .navi ul {
+                gap: 1rem;
+            }
+            
+            .hero {
+                flex-direction: column-reverse;
+                gap: 3rem;
+                margin: 3rem auto;
+            }
+            
+            .herosub {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .abouteeme {
+                flex-direction: column;
+                margin: 5rem auto;
+            }
+            
+            .texttitle {
+                justify-content: center;
+            }
+            
+            .abutpar {
+                text-align: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 1.8rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .text1, .text2 {
+                font-size: 1.5rem;
+            }
+            
+            .abutpar {
+                font-size: 1rem;
+            }
+            
+            .hireme, .cv {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .emailandphone a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        
         <H1 class="GM">GM_MOHAMED</H1>
     
      <nav class="navi">
         <ul>
-            <li><a href="#heroo">معلومات عني </a></li>
-            <li><a href="#myworks">اعمالي </a></li>
-            <li><a href="#con1">التواصل </a></li>
+            <li><a href="#heroo">معلومات عني</a></li>
+            <li><a href="#myworks">اعمالي</a></li>
+            <li><a href="#con1">التواصل</a></li>
         </ul>
-
      </nav>
     </header>
     <hr>
 
     <section class="hero" id="heroo">
-        <img class="arrow" src="https://drive.google.com/file/d/1th1ElA811RpY2U9IH-rxqdQRTPmWTqUP/view?usp=drive_link" alt="">
-       
         <div class="herosub">
             <h1 class="name">انا محمد</h1>
             <h1 class="title">اعمل مطور مواقع</h1>
             <div class="but">
-                <a class="hireme" href="">اعرف اكثر </a>
-                <a class="cv" href="assets/Musaab Kubbi CV.pdf" download="">حمل cv الخاص بي  <img src="assets/svg/download.svg" alt=""></a>
+                <a class="hireme" href="#abouut">اعرف اكثر</a>
+                <a class="cv" href="assets/Musaab Kubbi CV.pdf" download="">
+                    حمل CV الخاص بي
+                    <i class="fas fa-download"></i>
+                </a>
             </div>
-            
         </div>
-        <img class="heroimg" src="https://drive.google.com/file/d/1BRNozGms0g8xJ4oeVTjDJyP7FhcSKkyX/view?usp=sharing" alt="">
-
-
+        <img class="heroimg" src="https://via.placeholder.com/600x400/393e46/eeeeee?text=GM_Mohamed" alt="صورة شخصية">
     </section>
 
     <section class="abouteeme" id="abouut">
-        <img class="abuttimg" src="assets/svg/AboutMe.svg" alt="">
-
+        <img class="abuttimg" src="https://via.placeholder.com/500x400/393e46/eeeeee?text=About+Me" alt="معلومات عني">
 
         <div class="textall">
             <div class="texttitle">
-                <h1 class="text1">عني </h1>
+                <h1 class="text1">عني</h1>
                 <h1 class="text2">معلومات</h1>
-                <img class="light" src="assets/svg/lightbulb.svg" alt="">
-
+                <i class="fas fa-lightbulb" style="color: var(--primary-color); font-size: 2rem;"></i>
             </div>
-            <p class="abutpar">مطور مواقع ذو مستوى متوسط،
-                 ماهر في بناء وتصميم واجهات المستخدم وتحسين تجربة المستخدم. امتلك خبرة في تطوير الواجهات التفاعلية وتحسين أداء المواقع.
-                  اسعى دائمًا لتعلم أحدث التقنيات وتطوير مهاراتي في البرمجة.</p>
-
+            <p class="abutpar">
+                مطور مواقع ذو مستوى متوسط، ماهر في بناء وتصميم واجهات المستخدم وتحسين تجربة المستخدم. 
+                امتلك خبرة في تطوير الواجهات التفاعلية وتحسين أداء المواقع.
+                اسعى دائمًا لتعلم أحدث التقنيات وتطوير مهاراتي في البرمجة.
+            </p>
         </div>
     </section>
-
 
     <section class="works" id="myworks">
         <div class="workscon">
             <div class="projecttitle">
-                <h1 class="text1">مشاريعي  </h1>
+                <h1 class="text1">مشاريعي</h1>
                 <h1 class="text2">شاهد</h1>
-            </div class="kard">
+            </div>
 
-            <ul>
-                <li>
-                    <img src="photo_2025-06-03_12-03-16.jpg" alt=""> 
+            <ul class="projects-grid">
+                <li class="project-card">
+                    <img src="https://via.placeholder.com/300x200/393e46/eeeeee?text=Project+1" alt="مشروع 1"> 
                 </li>
 
-                <li>
-                    <img src="assets/imgs/لقطة الشاشة 2025-03-23 120901.png" alt="">
+                <li class="project-card">
+                    <img src="https://via.placeholder.com/300x200/393e46/eeeeee?text=Project+2" alt="مشروع 2">
                 </li>
 
-
-                <li>
-                    
-                    <img src="assets/imgs/لقطة الشاشة 2025-03-23 121228.png" alt="">
+                <li class="project-card">
+                    <img src="https://via.placeholder.com/300x200/393e46/eeeeee?text=Project+3" alt="مشروع 3">
                 </li>
 
-               
-
-                <li><img src="assets/imgs/photo_٢٠٢٥-٠٣-٢٣_١٢-١٦-٠٠.jpg" alt=""></li>
-
-               
+                <li class="project-card">
+                    <img src="https://via.placeholder.com/300x200/393e46/eeeeee?text=Project+4" alt="مشروع 4">
+                </li>
             </ul>
-
         </div>
-
     </section>
 
     <section class="contact" id="con1">
         <div class="projecttitle">
-            <h1 class="text1">معي   </h1>
-            <h1 class="text2">تواصل  </h1>
+            <h1 class="text1">معي</h1>
+            <h1 class="text2">تواصل</h1>
         </div>
 
         <div class="conteeect">
-            <div class="emailandphone">
-                <img src="assets/svg/Email.svg" alt="">
-                <a href="mailto:mohamdmoslim119@gmail.com"><h3>mohamdmoslim119@gmail.com</h3></a>
-            </div>
+            <div class="contact-method">
+                <div class="emailandphone">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:mohamdmoslim119@gmail.com"><h3>mohamdmoslim119@gmail.com</h3></a>
+                </div>
 
-            <div class="emailandphone">
-                <img src="assets/svg/phone.svg" alt="">
-                <a href="https://wa.me/963947733035?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%84%D9%82%D8%AF%20%D8%A7%D8%AA%D9%8A%D8%AA%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%8C%20%D8%A7%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9"><h3>+963947733035</h3></a>
+                <div class="emailandphone">
+                    <i class="fas fa-phone"></i>
+                    <a href="https://wa.me/963947733035"><h3>+963947733035</h3></a>
+                </div>
             </div>
 
             <div class="cocialmedia">
+                <a href="https://wa.me/963947733035" aria-label="واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
 
-                <a href="https://wa.me/963947733035?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%84%D9%82%D8%AF%20%D8%A7%D8%AA%D9%8A%D8%AA%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%8C%20%D8%A7%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9"><img src="assets/svg/whatsapp-logo_icon-icons.com_57054.svg" alt=""></a>
+                <a href="https://github.com/abo1fayz" aria-label="جيت هاب">
+                    <i class="fab fa-github"></i>
+                </a>
 
-                <a href="https://github.com/abo1fayz"><img src="assets/svg/github.svg" alt=""></a>
-
-                <a href="https://www.youtube.com/@%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3%D9%8A%D8%A8%D8%A7%D9%84%D9%85%D8%B5%D8%BA%D8%B1%D8%A9"><img src="assets/svg/youtube.svg" alt=""></a>
-
+                <a href="https://www.youtube.com" aria-label="يوتيوب">
+                    <i class="fab fa-youtube"></i>
+                </a>
             </div>
         </div>
-
-        
-
-
     </section>
-
-
 </body>
 </html>
